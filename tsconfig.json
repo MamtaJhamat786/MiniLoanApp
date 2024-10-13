@@ -1,34 +1,38 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "esnext",                     
+    "module": "esnext",                     
+    "strict": true,                         
+    "jsx": "preserve",                     
+    "moduleResolution": "node",            
+    "skipLibCheck": true,                  
+    "esModuleInterop": true,                 
+    "allowSyntheticDefaultImports": true,   
     "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": true,
-    "sourceMap": true,
-    "baseUrl": "./",
+    "useDefineForClassFields": true,        
+    "sourceMap": true,                      
+    "baseUrl": "./",                    
     "types": [
-      "webpack-env"
+      "webpack-env",                        
+      "webpack-dev-server"                  
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]                      
     },
     "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
+      "esnext",                             
+      "dom",                                
+      "dom.iterable",                       
+      "scripthost"                          
     ]
   },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "src/**/*.tsx"],
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.d.ts", 
+    "src/**/*.vue", 
+    "src/**/*.tsx"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules"                          // Exclude the node_modules directory
   ]
 }

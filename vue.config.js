@@ -1,10 +1,12 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true,
+const webpack = require('webpack');
+
+module.exports = {
+  // Add or adjust your Webpack configuration
   configureWebpack: {
-    // Add the feature flags here
-    define: {
-      '__VUE_PROD_HYDRATION_MISMATCH_DETAILS__': JSON.stringify(false),  // Set to true if you need detailed hydration errors
-    },
-  }
-})
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),  // Define environment variables
+      }),
+    ],
+  },
+};

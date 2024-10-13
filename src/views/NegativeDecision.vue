@@ -17,7 +17,6 @@
         <hr class="divider" />
       </div>
       <router-link to="/" class="exit-btn" @click="exit">Exit</router-link>
-      
     </div>
   </div>
 </template>
@@ -43,7 +42,7 @@ export default defineComponent({
     const store = useStore<LoanState>();
     // Use computed properties to get the Vuex state values
     const customerName = computed(() => store.state.personalDetails.firstName);
-  
+
     return { customerName };
   },
 });
@@ -68,18 +67,19 @@ export default defineComponent({
   background: #ffffff;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  border-radius: 15px;
+  border-radius: 20px;
+  text-align: center;
 }
 
 /* Title */
 .title {
   font-family: 'Bitter', serif;
-  font-size: 48px;
+  font-size: 28px; /* Adjust font size for mobile */
   font-weight: 400;
-  line-height: 56px;
+  line-height: 36px;
   text-align: center;
   color: #21093a;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .italic {
@@ -93,50 +93,71 @@ export default defineComponent({
 /* Subtitle */
 .subtitle {
   font-family: 'Bitter', serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
   color: #333;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* Divider */
 .divider {
   width: 100%;
-  border: 1px;
-  border-top: 1px solid #21093A;
+  border: 0;
+  border-top: 1px solid #21093a;
+  margin: 10px 0;
 }
 
 /* Description */
 .description {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-family: Inter;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 /* Exit Button */
 .exit-btn {
-  background-color: #AA93FF;
-  color: black;
-  width: 383px;
+  background-color: #aa93ff;
+  color: white;
+  width: 100%;
+  max-width: 300px;
   height: 48px;
-  padding: 12px 24px 12px 24px;
-  gap: 8px;
-  opacity: 0px;
+  padding: 12px;
   border: none;
   border-radius: 100px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .exit-btn:hover {
   background-color: #a583d0;
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 30px;
+    box-shadow: none;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .exit-btn {
+    max-width: 280px;
+    font-size: 14px;
+  }
 }
 </style>
