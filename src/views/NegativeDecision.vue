@@ -50,12 +50,14 @@ export default defineComponent({
 
 <style scoped>
 /* Main container */
+/* Main container */
 .negative-decision {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;  /* Align items to start but keep it flexbox */
   height: 100vh;
   background-color: #f7f7f7;
+  gap: 40px;
 }
 
 /* Content */
@@ -66,20 +68,23 @@ export default defineComponent({
   flex-direction: column;
   background: #ffffff;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 40px;
   border-radius: 20px;
-  text-align: center;
+  width: 792px; 
+  height: 450px;
+  gap: 40px;
+  border-radius: 20px;
+  opacity: 0px;
+
 }
 
 /* Title */
 .title {
   font-family: 'Bitter', serif;
-  font-size: 28px; /* Adjust font size for mobile */
+  font-size: 48px; /* Adjust font size */
   font-weight: 400;
-  line-height: 36px;
-  text-align: center;
-  color: #21093a;
-  margin-bottom: 10px;
+  line-height: 56px;
+  color: #21093A;
+;
 }
 
 .italic {
@@ -93,11 +98,11 @@ export default defineComponent({
 /* Subtitle */
 .subtitle {
   font-family: 'Bitter', serif;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 24px;
   font-weight: 400;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
+  color: #21093A;
+;
 }
 
 /* Divider */
@@ -114,14 +119,17 @@ export default defineComponent({
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+  color: #21093A;
+  text-align: center; 
+  max-width: 450px; 
+  width: 384px;
+  height: 40px;
+  margin: 0 auto;
 }
 
 /* Exit Button */
 .exit-btn {
-  background-color: #aa93ff;
+  background-color: #AA93FF;
   color: white;
   width: 100%;
   max-width: 300px;
@@ -131,6 +139,9 @@ export default defineComponent({
   border-radius: 100px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #21093A;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -140,10 +151,25 @@ export default defineComponent({
   background-color: #a583d0;
 }
 
+/* Mobile Styles */
 @media (max-width: 600px) {
+  .negative-decision {
+    background: white;
+  }
+
+  /* Description */
+  .description {
+    width: 260px; /* Adjust the width to make text wrap into three lines */
+    text-align: center;
+    opacity: 75%;
+    height: 60px;
+    margin: 0 auto; /* Ensure it's centered */
+  }
+
   .content {
     padding: 30px;
     box-shadow: none;
+    max-width: 90%; /* Ensure it doesn't take too much space on small screens */
   }
 
   .title {
@@ -160,4 +186,5 @@ export default defineComponent({
     font-size: 14px;
   }
 }
+
 </style>
