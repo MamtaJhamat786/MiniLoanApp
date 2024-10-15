@@ -1,13 +1,18 @@
 <template>
-  <div class="slider-container">
-    <label>{{ minLabel }} {{ modelValue }} {{ maxLabel }}</label>
+  <div class="slider-container flex-col align-center">
+    <!--<label>{{ minLabel }} {{ modelValue }} {{ maxLabel }}</label>-->
     <input
+      class="full-width"
       type="range"
       :min="min"
       :max="max"
       :value="modelValue"
       @input="updateValue"
     />
+    <div class="flex-row full-width justify-between">
+      <p>{{min}} {{ minLabel }}</p>
+      <p>{{max}} {{ maxLabel }}</p>
+    </div>
   </div>
 </template>
 
@@ -48,3 +53,27 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+  .slider-container{
+    width: 503.5px;
+    height: 36px;
+  }
+  .align-center{
+    align-items: center;
+  }
+  .full-width{
+    width: 100%
+  }
+  .flex-row{
+    display: flex;
+    flex-direction: row;
+  }
+  .flex-col{
+    display: flex;
+    flex-direction: column;
+  }
+  .justify-between{
+    justify-content: space-between;
+  }
+</style>

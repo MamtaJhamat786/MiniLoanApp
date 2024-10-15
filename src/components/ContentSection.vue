@@ -7,14 +7,18 @@
         <div class="text-in-bracket">
           <p class="text-product-name">Mini loan</p>
           <h1 class="heading-main">
-            <span class="heading-italic">Take charge of</span> unexpected costs
+            <span class="heading-italic">Take charge</span> of
+            <br />
+            unexpected
+            <br />
+            costs
           </h1>
           <p class="body-text">
             Finance unforeseen expenses with Inbank. A quick and easy application process with an instant credit decision.
           </p>
-          <button class="btn-custom">Apply now</button>
+          <button class="btn-custom" @click="scrollToCalculator">Apply now</button>
         </div>
-        
+
         <!-- Right Image (Photo) -->
         <div class="photo">
           <img
@@ -27,12 +31,14 @@
     </div>
 
     <!-- Calculator Section -->
-    <LoanCalculator />
+    <div ref="loanCalculatorDiv">
+      <LoanCalculator />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import LoanCalculator from './LoanCalculator.vue';
 
 export default defineComponent({
@@ -40,14 +46,25 @@ export default defineComponent({
   components: {
     LoanCalculator,
   },
+  setup() {
+    // Reference to the DOM element inside LoanCalculator component
+    const loanCalculatorDiv = ref<HTMLElement | null>(null);
+    // Scroll to LoanCalculator component
+    const scrollToCalculator = () => {
+      if (loanCalculatorDiv.value) {
+        // Scroll to the DOM element of LoanCalculator component
+        loanCalculatorDiv.value.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    return {
+      scrollToCalculator,
+      loanCalculatorDiv,
+    };
+  },
 });
 </script>
 
 <style scoped>
-.content-section {
-  max-width: 1536px;
-  margin: 0 auto;
-}
 
 /* Bracket and Photo Section */
 .bracket-and-photo {
@@ -61,8 +78,9 @@ export default defineComponent({
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  margin-bottom: 10px;
-  color: black;
+  color: #21093A;
+;
+
 }
 
 .btn-custom {
@@ -88,7 +106,13 @@ export default defineComponent({
   font-weight: 400;
   color: #21093a; /* Dark purple color */
   text-align: center;
+  height: 216px;
 }
+
+.heading-italic {
+  font-style: italic;
+}
+
 
 /* Body text for the last line */
 .body-text {
@@ -97,35 +121,39 @@ export default defineComponent({
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  color: #21093a;
-  opacity: 0.9; /* 90% opacity */
-}
-
-.heading-italic {
-  font-style: italic;
+  color: #21093A;
 }
 
 .content {
   display: flex;
+  justify-content: center;
   gap: 24px;
+  height: 839px;
 }
 
 .text-in-bracket {
   background-color: #d9d4a7;
   border-radius: 200px;
-  width: 593px;
+  width: 592.84px;
   height: 839px;
-  padding: 80px 40px;
+  padding: 80px 40px 80px 40px;
+  gap: 16px;
+  opacity: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+
 }
 
 /* Right Image (Photo) */
 .photo {
-  width: 593px;
+  width: 839px;
   height: 839px;
+  gap: 0px;
+  border-radius: 200px 0px 0px 0px;
+  opacity: 0px;
+
 }
 
 .image {
