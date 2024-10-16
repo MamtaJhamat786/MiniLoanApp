@@ -8,9 +8,9 @@
           <p class="text-product-name">Mini loan</p>
           <h1 class="heading-main">
             <span class="heading-italic">Take charge</span> of
-            <br />
+            <br/>
             unexpected
-            <br />
+            <br class="no-display"/>
             costs
           </h1>
           <p class="body-text">
@@ -79,8 +79,7 @@ export default defineComponent({
   line-height: 24px;
   text-align: center;
   color: #21093A;
-;
-
+  margin-bottom: 0;
 }
 
 .btn-custom {
@@ -106,13 +105,11 @@ export default defineComponent({
   font-weight: 400;
   color: #21093a; /* Dark purple color */
   text-align: center;
-  height: 216px;
 }
 
 .heading-italic {
   font-style: italic;
 }
-
 
 /* Body text for the last line */
 .body-text {
@@ -129,37 +126,82 @@ export default defineComponent({
   justify-content: center;
   gap: 24px;
   height: 839px;
+  width: -webkit-fill-available;
 }
 
 .text-in-bracket {
   background-color: #d9d4a7;
   border-radius: 200px;
-  width: 592.84px;
+  /* width: 592.84px; */
   height: 839px;
-  padding: 80px 40px 80px 40px;
+  padding: 80px 40px;
   gap: 16px;
   opacity: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 /* Right Image (Photo) */
 .photo {
   width: 839px;
   height: 839px;
-  gap: 0px;
   border-radius: 200px 0px 0px 0px;
-  opacity: 0px;
-
 }
-
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 200px;
 }
+
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column-reverse;
+    height: 816px;
+  }
+  .wrap{
+    flex-direction: column
+  }
+  .photo{
+    width: 100%;
+    /* width: 328px; */
+    height: 328px;
+    gap: 0px;
+    border: 1px 0px 0px 0px;
+  }
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100px;
+  }
+  .text-in-bracket {
+    /* width: 328px; */
+    height: 416px;
+    padding: 64px 24px;
+    gap: 8px;
+    gap: 24px;
+    border-radius: 100px;
+  }
+  .body-text {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0;
+  }
+  .heading-main{
+    font-family: 'Bitter';
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .no-display{
+    display: none;
+  }
+}
+
 </style>

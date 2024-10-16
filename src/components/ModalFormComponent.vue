@@ -1,69 +1,55 @@
 <template>
   <div class="modal-overlay" v-if="show">
-    <div class="modal-content">
-      <h2>Personal Details</h2>
-
-      <!-- Close Button -->
-      <button class="modal-close" @click="$emit('close')">X</button>
-
-      <form @submit.prevent="submitForm" class="modal-form">
-        <!-- First Name Field -->
-        <div class="form-group">
-          <label for="firstName">First name</label>
-          <input
-            type="text"
-            v-model="localForm.firstName"
-            id="firstName"
-          />
-          <span v-if="validationErrors?.firstName" class="error">{{ validationErrors.firstName }}</span>
+      <div class="modal-content">
+        <div class="header">
+          <p class="personal-details">Personal details</p>
+          <button class="modal-close" @click="$emit('close')">&times;</button>
         </div>
-
-        <!-- Last Name Field -->
-        <div class="form-group">
-          <label for="lastName">Last name</label>
-          <input
-            type="text"
-            v-model="localForm.lastName"
-            id="lastName"
-          />
-          <span v-if="validationErrors?.lastName" class="error">{{ validationErrors.lastName }}</span>
-        </div>
-
-        <!-- Mobile Number Field -->
-        <div class="form-group">
-          <label for="mobileNumber">Mobile number</label>
-          <input
-            type="text"
-            v-model="localForm.mobileNumber"
-            id="mobileNumber"
-          />
-          <span v-if="validationErrors?.mobileNumber" class="error">{{ validationErrors.mobileNumber }}</span>
-        </div>
-
-        <!-- Email Field -->
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input
-            type="email"
-            v-model="localForm.email"
-            id="email"
-          />
-          <span v-if="validationErrors?.email" class="error">{{ validationErrors.email }}</span>
-        </div>
-
-        <!-- Monthly Income Field -->
-        <div class="form-group">
-          <label for="monthlyIncome">Monthly income</label>
-          <input
-            type="number"
-            v-model="localForm.monthlyIncome"
-            id="monthlyIncome"
-          />
-          <span v-if="validationErrors?.monthlyIncome" class="error">{{ validationErrors.monthlyIncome }}</span>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
+        <form @submit.prevent="submitForm" class="modal-form">
+          <div class="content">
+            <input
+              class="form-input"
+              placeholder="First name"
+              type="text"
+              v-model="localForm.firstName"
+              id="firstName"
+            />
+            <span v-if="validationErrors?.firstName" class="error">{{ validationErrors.firstName }}</span>
+            <input
+              class="form-input"
+              placeholder="Last name"
+              type="text"
+              v-model="localForm.lastName"
+              id="lastName"
+            />
+            <span v-if="validationErrors?.lastName" class="error">{{ validationErrors.lastName }}</span>
+            <input
+              class="form-input"
+              placeholder="Mobile number"
+              type="text"
+              v-model="localForm.mobileNumber"
+              id="mobileNumber"
+            />
+            <span v-if="validationErrors?.mobileNumber" class="error">{{ validationErrors.mobileNumber }}</span>
+            <input
+              class="form-input"
+              placeholder="Email"
+              type="email"
+              v-model="localForm.email"
+              id="email"
+            />
+            <span v-if="validationErrors?.email" class="error">{{ validationErrors.email }}</span>
+            <input
+              class="form-input"
+              placeholder="Monthly income"
+              type="number"
+              v-model="localForm.monthlyIncome"
+              id="monthlyIncome"
+            />
+            <span v-if="validationErrors?.monthlyIncome" class="error">{{ validationErrors.monthlyIncome }}</span>
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
     </div>
   </div>
 </template>
@@ -126,24 +112,49 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 }
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 400px;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.header{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
 }
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.modal-close{
   background: none;
   border: none;
-  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  line-height: 1;
   cursor: pointer;
+  color: #333;
+  padding: 0;
+}
+
+.modal-content {
+  background-color: #FFFFFF;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 540px;
+  padding: 40px;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  opacity: 0px;
+}
+.personal-details{
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: left;
+  margin-bottom: 0;
+  color: #21093A;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .modal-form {
@@ -151,48 +162,53 @@ export default defineComponent({
   flex-direction: column;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
-  color: #333;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  transition: border-color 0.3s;
-}
-
-.form-group input:focus {
-  border-color: #7e57c2;
+.form-input {
+  height: 48px;
+  border-radius: 8px;
+  opacity: 0px;
+  border: 1px solid #DEDEDE;
+  padding: 4px 16px;
 }
 
 .error {
   color: red;
   font-size: 12px;
+  padding: 0 16px
 }
 
 .submit-btn {
-  background-color: #7e57c2;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
+  width: 460px;
+  height: 48px;
+  gap: 8px;
+  border-radius: 100px;
+  opacity: 0px;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  background-color: #AA93FF;
+  color: #21093A;
+  border: none;
+  margin-top: 24px;
+
 }
 
 .submit-btn:hover {
   background-color: #5c41a0;
 }
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .modal-content{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .submit-btn {
+    width: 100%;
+  }
+}
 </style>
+

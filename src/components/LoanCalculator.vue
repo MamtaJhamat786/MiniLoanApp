@@ -5,10 +5,12 @@
       <div class="text-in-bracket flex-1 main-box">
         <div class="title-description">
           <h1 class="calculator-title">Calculate
-            <br/>
-            your
-            <span class="heading-italic"> monthly</span> <br />
-            <span class="heading-italic">payment</span>
+            <br class="no-display"/>
+            your 
+            <br class="only-mobile"/>
+            <span class="heading-italic">monthly</span> 
+            <br class="no-display"/>
+            <span class="heading-italic"> payment</span>
           </h1>
           <p class="calculator-description">
             Estimate your monthly payments based on the chosen loan amount and time period.
@@ -28,7 +30,7 @@
             />
             <input class="amount-input" type="number" v-model="amount" /> 
           </div>
-          <div class="full-width-select-amount-period flex flex">
+          <div class="full-width-select-amount-period flex">
             <SliderComponent
               :min="2"
               :max="72"
@@ -47,7 +49,7 @@
               <p class="user-monthly-pmt">Monthly payment</p>
               <h1 class="amount">{{ monthlyPayment }} €</h1>
             </div>
-            <button class="apply-loan-btn">
+            <button class="apply-loan-btn" @click="applyNow">
               Apply now
             </button>
           </div>
@@ -213,7 +215,6 @@ export default defineComponent({
 
 /* Main container for the section */
 .calculator-section {
-  height: 584px;
   background-color: #E3D2FF;
 }
 .wrap{
@@ -239,16 +240,18 @@ export default defineComponent({
 }
 .full-width-select-amount-period{
   gap: 24px;
-  width: 687.5px;
+  /* width: 687.5px; */
 }
 .main-box{
   height: 424px;
 }
 .amount-period{
   gap: 40px;
+  width: 100%;
 }
 .flex-1{
   flex: 1;
+  min-width: 0;
 }
 .amount-input {
   width: 160px; 
@@ -260,7 +263,7 @@ export default defineComponent({
   background-color: #fff; 
 }
 .select-period{
-  width:  160px;
+  width: 160px; 
   height: 48px;
   max-width: 288px;
   border-radius: 8px;
@@ -361,6 +364,7 @@ export default defineComponent({
   line-height: 16px;
   text-align: left;
   color: #21093A;
+  word-break: break-word;
 
 }
 
@@ -373,6 +377,9 @@ export default defineComponent({
   font-style: italic;
   margin-bottom: 20px;
 }
+ .only-mobile{
+    display: none !important;
+  }
 /* Divider */
 .divider {
   width: 1px;
@@ -380,5 +387,57 @@ export default defineComponent({
   background-color: #21093a;
   margin: 0 40px;
 }
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .wrap{
+    flex-direction: column;
+    height: 784px;
+    padding: 40px 16px 40px 16px;
+    gap: 40px;
+    opacity: 0px;
+  }
+  .amount-input{
+    width: 100%;
+  }
+  .select-period{
+    width: 100%;
+    max-width: 100%;
+  }
+  .full-width-select-amount-period{
+    flex-direction: column-reverse;
+    width: 100%
+  }
+  .divider{
+    display: none;
+  }
+  .calculator-title {
+    font-family: 'Bitter';
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: left;
+  }
+  .calculator-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
+  .only-mobile{
+    display: block !important;
+  }
+  .amount{
+    font-family: 'Bitter';
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+  }
+  .no-display{
+    display: none !important;
+  }
+}
+
 
 </style>

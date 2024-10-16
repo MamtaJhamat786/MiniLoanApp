@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-container flex-col align-center">
+  <div class="slider-container flex-col align-center gap-10">
     <!--<label>{{ minLabel }} {{ modelValue }} {{ maxLabel }}</label>-->
     <input
       class="full-width"
@@ -9,9 +9,9 @@
       :value="modelValue"
       @input="updateValue"
     />
-    <div class="flex-row full-width justify-between">
-      <p>{{min}} {{ minLabel }}</p>
-      <p>{{max}} {{ maxLabel }}</p>
+    <div class="flex-row full-width justify-between align-center">
+      <p class="mb-0">{{min}} {{ minLabel }}</p>
+      <p class="mb-0">{{max}} {{ maxLabel }}</p>
     </div>
   </div>
 </template>
@@ -56,11 +56,15 @@ export default defineComponent({
 
 <style scoped>
   .slider-container{
-    width: 503.5px;
+    /* width: 503.5px; */
+    width: 100%;
     height: 36px;
   }
   .align-center{
     align-items: center;
+  }
+  .gap-10{
+    gap: 10px;
   }
   .full-width{
     width: 100%

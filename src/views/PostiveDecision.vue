@@ -75,21 +75,20 @@ export default defineComponent ({
 <style scoped>
 
 .positive-decision {
-  position: relative;
-  min-height: 100vh;
-  margin: 0 auto;
-  display: block;
-  background: #FBFBF9
+  display: flex;
+  align-items: center; 
+  min-height: 100vh; 
+  flex-direction: column;
 }
 
 /* Content */
 .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
-  width: 100%;
+  margin-top: 40px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%; 
   max-width: 1200px;
   background-color: #fff;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
@@ -98,10 +97,8 @@ export default defineComponent ({
 
 .image-container {
   background: #F0F0EA;
-  flex: 1;
-  display: flex;
   margin: 2px;
-  width: 600px;
+  width: 50%;
   height: 680px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -112,19 +109,22 @@ export default defineComponent ({
   position: relative;
 }
 .image-container img {
-  width: 552px;
+  width: 100%;          
+  height: auto;         
+  max-width: 600px;     
   height: 520px;
-  left: 48px;
-  position: relative;
-
+  display: block;      
+  margin: 0 auto;       
 }
 
 .text-container {
   display: flex; 
+  width: 50%;
   flex: 1;
   flex-direction: column; 
   align-items: center; 
   justify-content: center;
+  padding: 40px 32px 40px 44px;
 }
 
 .text-container h2 {
@@ -161,7 +161,6 @@ export default defineComponent ({
   font-weight: 400;
   line-height: 24px;
   text-align: center;
-
 }
 
 .loan-details {
@@ -197,7 +196,8 @@ export default defineComponent ({
   text-align: center;
   text-decoration: none;
   border-radius: 8px;
-  width: 384px;  
+  width: 100%;
+  /*width: 384px;   */
   height: 48px;
   font-size: 18px; 
   border-radius: 100px;

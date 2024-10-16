@@ -1,8 +1,6 @@
 <template>
-  <div id="app">
-    <HeaderSection />
-    <ContentSection />
-  </div>
+  <HeaderSection />
+  <ContentSection />
 </template>
 
 <script lang="ts">
