@@ -1,9 +1,7 @@
 <template>
   <div class="content-section">
-    <!-- Bracket and Photo Section -->
     <div class="bracket-and-photo">
       <div class="content">
-        <!-- Left Text (Bracket) -->
         <div class="text-in-bracket">
           <p class="text-product-name">Mini loan</p>
           <h1 class="heading-main">
@@ -18,8 +16,6 @@
           </p>
           <button class="btn-custom" @click="scrollToCalculator">Apply now</button>
         </div>
-
-        <!-- Right Image (Photo) -->
         <div class="photo">
           <img
             src="@/assets/man_with_dog.jpeg"
@@ -66,15 +62,14 @@ export default defineComponent({
 
 <style scoped>
 
-/* Bracket and Photo Section */
 .bracket-and-photo {
   height: 935px;
   padding: 16px 40px 80px 40px;
 }
 
 .text-product-name {
-  font-family: 'Inter', sans-serif; /* Custom font-family */
-  font-weight: 500; /* Medium weight */
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; 
   font-size: 16px;
   line-height: 24px;
   text-align: center;
@@ -97,13 +92,12 @@ export default defineComponent({
   transition: background-color 0.3s ease;
 }
 
-/* Typography for Heading */
 .heading-main {
   font-family: 'Bitter', serif;
   font-size: 68px;
   line-height: 72px;
   font-weight: 400;
-  color: #21093a; /* Dark purple color */
+  color: #21093a; 
   text-align: center;
 }
 
@@ -111,7 +105,6 @@ export default defineComponent({
   font-style: italic;
 }
 
-/* Body text for the last line */
 .body-text {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -132,7 +125,6 @@ export default defineComponent({
 .text-in-bracket {
   background-color: #d9d4a7;
   border-radius: 200px;
-  /* width: 592.84px; */
   height: 839px;
   padding: 80px 40px;
   gap: 16px;
@@ -143,12 +135,12 @@ export default defineComponent({
   align-items: center;
 }
 
-/* Right Image (Photo) */
 .photo {
   width: 839px;
   height: 839px;
   border-radius: 200px 0px 0px 0px;
 }
+
 .image {
   width: 100%;
   height: 100%;
@@ -167,7 +159,6 @@ export default defineComponent({
   }
   .photo{
     width: 100%;
-    /* width: 328px; */
     height: 328px;
     gap: 0px;
     border: 1px 0px 0px 0px;
@@ -179,7 +170,6 @@ export default defineComponent({
     border-radius: 100px;
   }
   .text-in-bracket {
-    /* width: 328px; */
     height: 416px;
     padding: 64px 24px;
     gap: 8px;

@@ -1,6 +1,5 @@
 <template>
   <div class="slider-container flex-col align-center gap-10">
-    <!--<label>{{ minLabel }} {{ modelValue }} {{ maxLabel }}</label>-->
     <input
       class="full-width"
       type="range"
@@ -30,7 +29,7 @@ export default defineComponent({
       type: Number,
       required: true,
     },
-    modelValue: {  // Using modelValue for v-model
+    modelValue: { 
       type: Number,
       required: true,
     },
@@ -56,7 +55,6 @@ export default defineComponent({
 
 <style scoped>
   .slider-container{
-    /* width: 503.5px; */
     width: 100%;
     height: 36px;
   }

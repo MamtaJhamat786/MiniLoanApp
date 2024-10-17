@@ -15,7 +15,7 @@
         <table class="loan-details">
           <tbody>
             <tr class="divider">
-              <td colspan="2"></td> <!-- Divider row -->
+              <td colspan="2"></td>
             </tr>
             <tr>
               <td>Loan amount</td>
@@ -103,6 +103,7 @@ export default defineComponent ({
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
+
 .inner-box{
   top: 80px;
   left: 60px;
@@ -111,8 +112,7 @@ export default defineComponent ({
 .image-container img {
   width: 100%;          
   height: auto;         
-  max-width: 600px;     
-  height: 520px;
+  max-width: 600px; 
   display: block;      
   margin: 0 auto;       
 }
@@ -133,7 +133,7 @@ export default defineComponent ({
   font-weight: 400;
   line-height: 56px;
   text-align: center;
-  margin-bottom: 16px; /* Adjust to balance spacing */
+  margin-bottom: 16px; 
 }
 
 .text-container p {
@@ -142,7 +142,7 @@ export default defineComponent ({
   font-weight: 400;
   line-height: 24px;
   text-align: center;
-  margin-bottom: 32px; /* Add more space for breathing */
+  margin-bottom: 32px; 
 }
 
 
@@ -152,7 +152,6 @@ export default defineComponent ({
   font-weight: 400;
   line-height: 56px;
   text-align: center;
-
 }
 
 .text-container p {
@@ -195,41 +194,62 @@ export default defineComponent ({
   color: #21093A;
   text-align: center;
   text-decoration: none;
-  border-radius: 8px;
   width: 100%;
-  /*width: 384px;   */
+  max-width: 384px; 
   height: 48px;
   font-size: 18px; 
   border-radius: 100px;
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
 }
-
 .back-btn:hover {
-  background-color: #a583d0;
+  background-color: #BBA8FF;
 }
+.back-btn.focused:focus {
+  background-color: #BBA8FF;
+}
+
+.back-btn.pressed:active {
+  background-color: #9F85FF;
+  transform: translateY(2px);
+}
+
+.back-btn.enabled {
+  background-color: #AA93FF;
+}
+
 
 @media (max-width: 768px) {
   .positive-decision {
     background: white
   }
   .content {
-    flex-direction: column !important; /* Change to column layout on small screens */
-    text-align: center !important; /* Center the text in mobile view */
-    padding: 20px; /* Adjust padding for smaller screens */
+    flex-direction: column !important; 
+    text-align: center !important; 
+    padding: 20px;
     align-items: center;
     justify-content: center;
     box-shadow: none !important;
+    gap: 24px;
   }
   .image-container{
     width: 240px !important;
     height: 240px !important;
-    flex: none !important;
+    display: flex !important;
     text-align: center !important;
     border-radius: 80px !important;
   }
+  .text-container h2 {
+    font-family: 'Bitter';
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: center;
+  }
+
   .inner-box{
     display: flex !important;
     width: 100% !important;
@@ -244,15 +264,16 @@ export default defineComponent ({
     left: 0 !important
   }
   .text-container {
-    padding-left: 0; /* Remove left padding on mobile */
+    padding: 0;
+    width: 100%;
   }
 
   .loan-details {
-    max-width: 100%; /* Ensure table takes full width in mobile */
+    max-width: 100%; 
   }
 
   .back-btn {
-    width: 100%; /* Make the button take full width */
+    width: 100%;
   }
 }
 

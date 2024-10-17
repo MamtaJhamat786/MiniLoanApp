@@ -25,7 +25,7 @@
 import HeaderSection from "@/components/HeaderSection.vue";
 import { defineComponent, computed } from 'vue';
 import { LoanState } from '@/store/types';
-import { useStore } from 'vuex'; // Import useStore for Vuex integration
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: "NegativeDecision",
@@ -49,18 +49,21 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Main container */
-/* Main container */
 .negative-decision {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Align items to start but keep it flexbox */
+  align-items: center; 
   height: 100vh;
   background-color: #f7f7f7;
   gap: 40px;
 }
+.text-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-/* Content */
 .content {
   display: flex;
   justify-content: center;
@@ -74,17 +77,14 @@ export default defineComponent({
   gap: 40px;
   border-radius: 20px;
   opacity: 0px;
-
 }
 
-/* Title */
 .title {
   font-family: 'Bitter', serif;
-  font-size: 48px; /* Adjust font size */
+  font-size: 48px;
   font-weight: 400;
   line-height: 56px;
   color: #21093A;
-;
 }
 
 .italic {
@@ -95,17 +95,13 @@ export default defineComponent({
   font-style: normal;
 }
 
-/* Subtitle */
 .subtitle {
   font-family: 'Bitter', serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
   color: #21093A;
-;
 }
-
-/* Divider */
 .divider {
   width: 100%;
   border: 0;
@@ -113,7 +109,6 @@ export default defineComponent({
   margin: 10px 0;
 }
 
-/* Description */
 .description {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -127,7 +122,6 @@ export default defineComponent({
   margin: 0 auto;
 }
 
-/* Exit Button */
 .exit-btn {
   background-color: #AA93FF;
   color: white;
@@ -148,7 +142,18 @@ export default defineComponent({
 }
 
 .exit-btn:hover {
-  background-color: #a583d0;
+  background-color: #BBA8FF;
+}
+.exit-btn.focused:focus {
+  background-color: #BBA8FF;
+}
+
+.exit-btn.pressed:active {
+  background-color: #9F85FF;
+  transform: translateY(2px);
+}
+.exit-btn.enabled {
+  background-color: #AA93FF;
 }
 
 /* Mobile Styles */
@@ -159,17 +164,17 @@ export default defineComponent({
 
   /* Description */
   .description {
-    width: 260px; /* Adjust the width to make text wrap into three lines */
+    width: 260px;
     text-align: center;
     opacity: 75%;
     height: 60px;
-    margin: 0 auto; /* Ensure it's centered */
+    margin: 0 auto; 
   }
 
   .content {
     padding: 30px;
     box-shadow: none;
-    max-width: 90%; /* Ensure it doesn't take too much space on small screens */
+    max-width: 90%;
   }
 
   .title {

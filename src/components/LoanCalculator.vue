@@ -2,7 +2,7 @@
   <div class="calculator-section">
     <!-- Left Side: Title and Description -->
     <div class="wrap">
-      <div class="text-in-bracket flex-1 main-box">
+      <div class="text-in-bracket display-center flex-1 main-box">
         <div class="title-description">
           <h1 class="calculator-title">Calculate
             <br class="no-display"/>
@@ -20,7 +20,7 @@
       <div class="divider"></div>
       <div class="calculator flex-1 main-box flex-col">
         <div class="amount-period flex flex-col">
-          <div class="select-amount full-width-select-amount-period justify-center align-center flex">
+          <div class="select-amount full-width-select-amount-period flex justify-center align-center">
             <SliderComponent
               :min="300"
               :max="7200"
@@ -30,7 +30,7 @@
             />
             <input class="amount-input" type="number" v-model="amount" /> 
           </div>
-          <div class="full-width-select-amount-period flex">
+          <div class="full-width-select-amount-period flex justify-center align-center">
             <SliderComponent
               :min="2"
               :max="72"
@@ -76,7 +76,7 @@ import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import ModalFormComponent from './ModalFormComponent.vue';
 import SliderComponent from './SliderComponent.vue';
-import { PersonalDetails } from '@/store/types'; // Assuming you have this type defined
+import { PersonalDetails } from '@/store/types';
 
 export default defineComponent({
   name: 'LoanCalculator',
@@ -175,9 +175,7 @@ export default defineComponent({
       return isValid; // Return true if the form is valid, false otherwise
     };
 
-    // Handle form submission from ModalFormComponent
     const handleFormSubmit = (formData: PersonalDetails) => {
-      // Safely update the form object
       Object.assign(form.value, formData);
 
       // Check if the form is valid
@@ -213,7 +211,6 @@ export default defineComponent({
 
 <style scoped>
 
-/* Main container for the section */
 .calculator-section {
   background-color: #E3D2FF;
 }
@@ -240,10 +237,15 @@ export default defineComponent({
 }
 .full-width-select-amount-period{
   gap: 24px;
-  /* width: 687.5px; */
 }
 .main-box{
   height: 424px;
+}
+.display-center{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .amount-period{
   gap: 40px;
@@ -253,22 +255,17 @@ export default defineComponent({
   flex: 1;
   min-width: 0;
 }
-.amount-input {
-  width: 160px; 
-  height: 48px;
-  border-radius: 8px;
-  border: 1px solid #6037BB; 
-  padding-left: 10px;
+.amount-input,
+.select-period {
+  width: 40%;
+  height: 48px; 
+  padding: 10px; 
+  font-size: 16px;
+  border-radius: 8px; 
+  box-sizing: border-box;
+  border: 1px solid #6037BB;  
   color: #21093A;
   background-color: #fff; 
-}
-.select-period{
-  width: 160px; 
-  height: 48px;
-  max-width: 288px;
-  border-radius: 8px;
-  border: 1px solid #60378B;
-  color: #21093A;
 }
 
 .amount-input:focus {
@@ -303,6 +300,8 @@ export default defineComponent({
   line-height: 24px;
   color: #21093a;
   opacity: 0.9;
+  text-align: center;
+  width: 100%;
 }
 .calculator{
   display: flex;
@@ -383,7 +382,7 @@ export default defineComponent({
 /* Divider */
 .divider {
   width: 1px;
-  height: 100%; /* Full height divider */
+  height: 100%;
   background-color: #21093a;
   margin: 0 40px;
 }

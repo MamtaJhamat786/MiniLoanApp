@@ -15,7 +15,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Main header container */
 .header-section {
   width: 100%; 
   height: 72px; 
@@ -25,7 +24,6 @@ export default defineComponent({
   background-color: #FBFBF9;
 
 }
-/* Logo styles */
 .logo {
   height: 64px; 
   width: auto; 
