@@ -13,7 +13,7 @@ Vue CLI: Install the Vue CLI globally if you don't have it already using npm ins
 
 1. Clone the repository to your local machine:
 
-   git clone https://github.com/MamtaJhamat786/mini-loan-app.git
+   git clone https://github.com/MamtaJhamat786/MiniLoanApp.git
 
 2. Navigate into the project directory:
 
